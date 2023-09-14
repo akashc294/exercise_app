@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 class DetailImageView extends StatelessWidget {
   DetailImageView({Key? key}) : super(key: key);
 
+
   var controller = Get.find<DetailController>();
   @override
   Widget build(BuildContext context) {
@@ -51,6 +52,15 @@ class DetailImageView extends StatelessWidget {
               )
           ),
         ),
+        Positioned(
+          top: 30,
+            child: IconButton(
+                onPressed: (){
+                  Get.back();
+                  },
+                icon: const Icon(Icons.arrow_back)
+            )
+        )
       ],
     );
   }

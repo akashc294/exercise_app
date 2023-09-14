@@ -1,5 +1,5 @@
 class Assets{
-  static String splash = "assets/images/splash_image.jpeg";
+  static String splash = "assets/images/splash_image.png";
   static String abstract = "assets/images/abstract.jpg";
   static String abstract2 = "assets/images/abstract2.jpg";
   static String equipment = "assets/images/equipment.png";
