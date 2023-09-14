@@ -31,7 +31,7 @@ class HomeController extends GetxController{
 
 
   getExercisesData()async{
-    var data = await ExerciseRepo().getExercisesLocally();
+    var data = await ExerciseRepo().getExercises();
     exercises = data;
     exercises.sort((a, b) => a.name!.compareTo(b.name!));
     Map groupedItems = groupItemsByCategory(exercises);

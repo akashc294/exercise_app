@@ -9,9 +9,9 @@ class APIService{
   APIService(){
     _dio.options.baseUrl = APIS.baseURL;
     _dio.interceptors.add(PrettyDioLogger(
-      responseBody: true,
-      requestHeader : true,
-      requestBody :true,
+      responseBody: false,
+      requestHeader : false,
+      requestBody :false,
     ));
   }
 
