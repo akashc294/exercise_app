@@ -1,5 +1,4 @@
 import 'package:exercise_app/constants/colors.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SearchView extends StatelessWidget {

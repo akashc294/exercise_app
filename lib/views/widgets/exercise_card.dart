@@ -1,7 +1,5 @@
-import 'package:exercise_app/constants/assets.dart';
 import 'package:exercise_app/constants/colors.dart';
 import 'package:exercise_app/models/exercises.dart';
-import 'package:exercise_app/routes/routes.dart';
 import 'package:exercise_app/views/widgets/custom_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

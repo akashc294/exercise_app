@@ -24,13 +24,13 @@ class Exercises {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['bodyPart'] = this.bodyPart;
-    data['equipment'] = this.equipment;
-    data['gifUrl'] = this.gifUrl;
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['target'] = this.target;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['bodyPart'] = bodyPart;
+    data['equipment'] = equipment;
+    data['gifUrl'] = gifUrl;
+    data['id'] = id;
+    data['name'] = name;
+    data['target'] = target;
     return data;
   }
 }

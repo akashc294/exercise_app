@@ -1,11 +1,8 @@
 import 'dart:async';
-
 import 'package:exercise_app/routes/routes.dart';
 import 'package:exercise_app/views/widgets/custom_text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../constants/assets.dart';
 import '../../constants/strings.dart';
 

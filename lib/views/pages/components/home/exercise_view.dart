@@ -27,7 +27,7 @@ class ExerciseView extends StatelessWidget {
                     ),
                 child: ExerciseCard(
                   controller.exercises[index],
-                  navigateToDetails: () => controller.navigateToDetailScreen(),
+                  navigateToDetails: () => controller.navigateToDetailScreen(controller.exercises[index].id!),
                 ),
               );
             },

@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(name: AppRoutes.root, page: ()=>const SplashScreen()),
         GetPage(name: AppRoutes.homeScreen, page: ()=> HomeScreen()),
-        GetPage(name: AppRoutes.exerciseDetails, page: ()=>const ExerciseDetails())
+        GetPage(name: AppRoutes.exerciseDetails, page: ()=> ExerciseDetails())
       ],
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),

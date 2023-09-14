@@ -12,6 +12,7 @@ import '../models/exercises.dart';
 class ExerciseRepo{
   APIService apiService = APIService();
 
+  //--------- Getting List of Exercises  --------
   Future<List<Exercises>> getExercises()async{
     List<Exercises> exercises = [];
 
@@ -40,6 +41,29 @@ class ExerciseRepo{
     return exercises;
   }
 
+  //--------- Getting Exercise Detail --------
+
+  Future<Exercises> getExerciseById(String id)async{
+    Exercises exercise = Exercises();
+
+    try{
+      Response response = await apiService.dio.get(
+          APIS.getExerciseDetails+id,
+          options: Options(
+              headers:{
+                "X-RapidAPI-Key":Strings.apiKey,
+                "X-RapidAPI-Host":Strings.apiHost,
+              }
+          )
+      );
+      exercise = Exercises.fromJson(response.data);
+    }on DioException catch (exception){
+      errorMessage(exception);
+    }
+    return exercise;
+  }
+
+  //--------- Getting Exercise list from Sample Json File to reduce API Hits for development --------
   Future<List<Exercises>> getExercisesLocally()async{
     List<Exercises> exercises = [];
     try {

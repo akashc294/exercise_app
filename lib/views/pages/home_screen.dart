@@ -4,55 +4,30 @@ import 'package:exercise_app/views/pages/components/home/category_view.dart';
 import 'package:exercise_app/views/pages/components/home/exercise_view.dart';
 import 'package:exercise_app/views/pages/components/home/search_view.dart';
 import 'package:exercise_app/views/widgets/custom_text.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:exercise_app/views/widgets/dashboard_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import '../../constants/assets.dart';
-import 'package:collection/collection.dart';
+import '../../constants/strings.dart';
 
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
   final GlobalKey<ScaffoldState> _drawerKey = GlobalKey();
-  final TextEditingController _searchController = TextEditingController();
   final HomeController controller = Get.put(HomeController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: _buildBody(),
-      backgroundColor: AppThemeColors.white,
       key: _drawerKey,
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Text('Drawer Header'),
-            ),
-            ListTile(
-              title: Text('Item 1'),
-              onTap: _drawerKey.currentState?.closeDrawer,
-            )
-          ],
-        ),
-      ),
+      drawer: const DashboardDrawer(),
     );
   }
 
   _buildBody() {
     return Container(
       decoration:  BoxDecoration(
-        /*image: DecorationImage(
-          image: AssetImage(
-            Assets.abstract2,
-          ),
-          fit: BoxFit.fill,
-        ),*/
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
@@ -103,11 +78,11 @@ class HomeScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CustomText.text("Hello",
+          CustomText.text(Strings.hello,
               fontSize: 30,
               fontWeight: FontWeight.bold),
           CustomText.text(
-            "Welcome to Fitness Reloaded", fontSize: 18,),
+            Strings.dashboardGreet, fontSize: 18,),
         ],
       ),
     );

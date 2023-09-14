@@ -8,5 +8,8 @@ class Strings{
 
   static String fitness = "Fitness";
   static String reloaded = "Reloaded";
+  static String hello = "Hello";
+  static String dashboardGreet = "Welcome to Fitness Reloaded";
+  static String errorMessage = "Some Error Occurred";
   static String splashDescription = "Get all exercises at your finger tip";
 }

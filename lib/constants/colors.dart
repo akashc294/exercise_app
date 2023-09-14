@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:exercise_app/utils/hex_color.dart';
 import 'package:flutter/material.dart';
 

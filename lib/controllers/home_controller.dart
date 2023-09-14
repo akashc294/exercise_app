@@ -1,9 +1,9 @@
+import 'package:collection/collection.dart';
 import 'package:exercise_app/models/categories.dart';
 import 'package:exercise_app/models/exercises.dart';
 import 'package:exercise_app/repositories/exercise_repo.dart';
 import 'package:exercise_app/routes/routes.dart';
 import 'package:get/get.dart';
-import 'package:collection/collection.dart';
 
 class HomeController extends GetxController{
   bool _isLoading = true;
@@ -48,18 +48,18 @@ class HomeController extends GetxController{
   }
 
 
-  navigateToDetailScreen(){
-    Get.toNamed(AppRoutes.exerciseDetails,arguments: {""});
+  navigateToDetailScreen(String id){
+    Get.toNamed(AppRoutes.exerciseDetails,arguments: {"id":id});
   }
 
   changeCategory(Categories category){
-    categories.forEach((element) {
+    for (var element in categories) {
       element.isSelected = false;
       if(category.name==element.name) {
         element.isSelected = true;
         selectedCategory = category.name!;
       }
-    });
+    }
     update();
   }
 
