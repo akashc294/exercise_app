@@ -1,6 +1,6 @@
 # Fitness Reloaded
 
-A new Flutter project where you can see list full of exercises.
+A new Flutter project using Getx State Management where you can see list full of exercises.
 
 <img width="355" alt="Screenshot 2023-09-14 at 2 11 23 PM" src="https://github.com/akashc294/exercise_app/assets/49306233/cd4d8267-2f8d-4952-98b2-5ce2d954d3b2">
 
