@@ -3,18 +3,21 @@ import 'package:exercise_app/controllers/home_controller.dart';
 import 'package:exercise_app/views/pages/components/home/category_view.dart';
 import 'package:exercise_app/views/pages/components/home/exercise_view.dart';
 import 'package:exercise_app/views/pages/components/home/search_view.dart';
+import 'package:exercise_app/views/pages/components/loaders/category_shimmer.dart';
 import 'package:exercise_app/views/widgets/custom_text.dart';
 import 'package:exercise_app/views/widgets/dashboard_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../constants/assets.dart';
 import '../../constants/strings.dart';
+import 'components/loaders/exercise_list_shimmer.dart';
 
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
   final GlobalKey<ScaffoldState> _drawerKey = GlobalKey();
   final HomeController controller = Get.put(HomeController());
+
 
   @override
   Widget build(BuildContext context) {
@@ -27,25 +30,36 @@ class HomeScreen extends StatelessWidget {
 
   _buildBody() {
     return Container(
-      decoration:  BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            AppThemeColors.black.withOpacity(0.9),
-            AppThemeColors.black.withOpacity(0.8),
-          ]
-        )
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                AppThemeColors.black.withOpacity(0.9),
+                AppThemeColors.black.withOpacity(0.8),
+              ]
+          )
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           topView(),
           middleView(),
-          SearchView((value)=>controller.onSearch(value)),
+          SearchView((value) => controller.onSearch(value)),
           const SizedBox(height: 8,),
-          CategoryView(),
-          ExerciseView(),
+          GetBuilder<HomeController>(
+            assignId: true,
+            builder: (logic) {
+              return Expanded(
+                child: Column(
+                  children: [
+                    controller.getLoading() ? const CategoryShimmer() : CategoryView(),
+                    controller.getLoading() ? const ExerciseShimmer() : ExerciseView(),
+                  ],
+                ),
+              );
+            },
+          )
         ],
       ),
     );
@@ -61,7 +75,7 @@ class HomeScreen extends StatelessWidget {
         children: [
           IconButton(onPressed: () {
             _drawerKey.currentState?.openDrawer();
-          }, icon: Icon(Icons.menu,color: AppThemeColors.white,)),
+          }, icon: Icon(Icons.menu, color: AppThemeColors.white,)),
           CircleAvatar(
               radius: 20,
               backgroundImage: AssetImage(Assets.splash)
@@ -87,4 +101,5 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
+
 }
